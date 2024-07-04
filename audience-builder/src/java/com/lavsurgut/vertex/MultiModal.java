@@ -22,9 +22,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Collections;
+import java.util.Objects;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MultiModal {
-  public static void run() throws IOException {
+  public static String run() throws IOException {
     try (VertexAI vertexAi = new VertexAI("genaibuilders24ber-5354", "us-central1"); ) {
       List<Tool> tools = new ArrayList<>();
       tools.add(
@@ -72,6 +76,13 @@ public class MultiModal {
 
       // Do something with the response
       responseStream.stream().forEach(System.out::println);
+
+      String output =
+      responseStream.stream()
+        .map(Objects::toString)
+        .collect(Collectors.joining(","));
+        
+      return output;
     }
   }
 }
