@@ -1,6 +1,7 @@
 (ns lavsurgut.com.audience-builder.web.routes.api
   (:require
     [lavsurgut.com.audience-builder.web.controllers.health :as health]
+    [lavsurgut.com.audience-builder.web.controllers.rules :as rules] 
     [lavsurgut.com.audience-builder.web.middleware.exception :as exception]
     [lavsurgut.com.audience-builder.web.middleware.formats :as formats]
     [integrant.core :as ig]
@@ -38,7 +39,8 @@
            :swagger {:info {:title "lavsurgut.com.audience-builder API"}}
            :handler (swagger/create-swagger-handler)}}]
    ["/health"
-    {:get health/healthcheck!}]])
+    {:get health/healthcheck!}]
+   ["/rules" {:get rules/get-rules}]])
 
 (derive :reitit.routes/api :reitit/routes)
 
