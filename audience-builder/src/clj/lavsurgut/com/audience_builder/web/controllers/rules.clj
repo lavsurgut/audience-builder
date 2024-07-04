@@ -4,4 +4,6 @@
 
 (defn get-rules
   [req]
-  (http-response/ok))
+  (let [result (MultiModal/run)]
+    (http-response/ok "I was called"))
+  )
