@@ -1,0 +1,8 @@
+{:full-name "lavsurgut.com/audience-builder"
+ :ns-name   "lavsurgut.com.audience-builder"
+ :sanitized "lavsurgut/com/audience_builder"
+ :name      "audience-builder"
+ :modules   {:root         "modules"
+             :repositories [{:url  "https://github.com/kit-clj/modules.git"
+                             :tag  "master"
+                             :name "kit-modules"}]}}
